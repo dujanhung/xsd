@@ -76,22 +76,22 @@
     <extension base="StyleAttrs">
      <attribute name="cx" type="string"/>
      <attribute name="cy" type="string"/>
-     <xs:attribute name="r" type="xs:string" use="required"/>
-    </xs:extension>
-   </xs:complexContent>
-  </xs:complexType>
- </xs:element>
- <xs:element name="path">
-  <xs:complexType>
-   <xs:choice minOccurs="0" maxOccurs="unbounded">
-    <xs:element ref="animate"/>
-    <xs:element ref="animateTransform"/>
-   </xs:choice>
-   <xs:complexContent>
-    <xs:extension base="StyleAttrs">
-     <xs:attribute name="d" type="xs:string" use="required"/>
-    </xs:extension>
-   </xs:complexContent>
-  </xs:complexType>
- </xs:element>
-</xs:schema>
+     <attribute name="r" type="string" use="required"/>
+    </extension>
+   </complexContent>
+  </complexType>
+ </element>
+ <element name="path">
+  <complexType>
+   <choice minOccurs="0" maxOccurs="unbounded">
+    <element ref="animate"/>
+    <element ref="animateTransform"/>
+   </choice>
+   <complexContent>
+    <extension base="StyleAttrs">
+     <attribute name="d" type="string" use="required"/>
+    </extension>
+   </complexContent>
+  </complexType>
+ </element>
+</schema>
