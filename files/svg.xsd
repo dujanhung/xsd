@@ -9,10 +9,10 @@
      <element ref="g"/>
     </choice>
    </sequence>
-   <attribute name="width" type="xs:string"/>
-   <attribute name="height" type="xs:string"/>
-   <attribute name="viewBox" type="xs:string"/>
-   <attribute name="xmlns" type="xs:string" fixed="http://www.w3.org/2000/svg"/>
+   <attribute name="width" type="string"/>
+   <attribute name="height" type="string"/>
+   <attribute name="viewBox" type="string"/>
+   <attribute name="xmlns" type="string" fixed="http://www.w3.org/2000/svg"/>
   </complexType>
  </element>
  <element name="g">
@@ -27,55 +27,55 @@
      <element ref="animateTransform"/>
     </choice>
    </sequence>
-   <attribute name="transform" type="xs:string"/>
+   <attribute name="transform" type="string"/>
   </complexType>
  </element>
  <complexType name="StyleAttrs">
-  <attribute name="class" type="xs:string"/>
-  <attribute name="fill" type="xs:string"/>
-  <attribute name="stroke" type="xs:string"/>
-  <attribute name="stroke-width" type="xs:string"/>
-  <attribute name="stroke-linecap" type="xs:string"/>
-  <attribute name="stroke-linejoin" type="xs:string"/>
-  <xs:attribute name="opacity" type="xs:string"/>
- </xs:complexType>
- <xs:element name="style"/>
- <xs:element name="animate">
-  <xs:complexType>
-   <xs:attribute name="attributeName" type="xs:string" use="required"/>
-   <xs:attribute name="from" type="xs:string"/>
-   <xs:attribute name="to" type="xs:string"/>
-   <xs:attribute name="values" type="xs:string"/>
-   <xs:attribute name="dur" type="xs:string"/>
-   <xs:attribute name="begin" type="xs:string"/>
-   <xs:attribute name="repeatCount" type="xs:string"/>
-   <xs:attribute name="fill" type="xs:string"/>
-  </xs:complexType>
- </xs:element>
- <xs:element name="animateTransform">
-  <xs:complexType>
-   <xs:attribute name="attributeName" type="xs:string" fixed="transform"/>
-   <xs:attribute name="type" type="xs:string" use="required"/>
-   <xs:attribute name="from" type="xs:string"/>
-   <xs:attribute name="to" type="xs:string"/>
-   <xs:attribute name="values" type="xs:string"/>
-   <xs:attribute name="dur" type="xs:string"/>
-   <xs:attribute name="begin" type="xs:string"/>
-   <xs:attribute name="repeatCount" type="xs:string"/>
-   <xs:attribute name="additive" type="xs:string"/>
-   <xs:attribute name="accumulate" type="xs:string"/>
-  </xs:complexType>
- </xs:element>
- <xs:element name="circle">
-  <xs:complexType>
-   <xs:choice minOccurs="0" maxOccurs="unbounded">
-    <xs:element ref="animate"/>
-    <xs:element ref="animateTransform"/>
-   </xs:choice>
-   <xs:complexContent>
-    <xs:extension base="StyleAttrs">
-     <xs:attribute name="cx" type="xs:string"/>
-     <xs:attribute name="cy" type="xs:string"/>
+  <attribute name="class" type="string"/>
+  <attribute name="fill" type="string"/>
+  <attribute name="stroke" type="string"/>
+  <attribute name="stroke-width" type="string"/>
+  <attribute name="stroke-linecap" type="string"/>
+  <attribute name="stroke-linejoin" type="string"/>
+  <attribute name="opacity" type="string"/>
+ </complexType>
+ <element name="style"/>
+ <element name="animate">
+  <complexType>
+   <attribute name="attributeName" type="string" use="required"/>
+   <attribute name="from" type="string"/>
+   <attribute name="to" type="string"/>
+   <attribute name="values" type="string"/>
+   <attribute name="dur" type="string"/>
+   <attribute name="begin" type="string"/>
+   <attribute name="repeatCount" type="string"/>
+   <attribute name="fill" type="string"/>
+  </complexType>
+ </element>
+ <element name="animateTransform">
+  <complexType>
+   <attribute name="attributeName" type="string" fixed="transform"/>
+   <attribute name="type" type="string" use="required"/>
+   <attribute name="from" type="string"/>
+   <attribute name="to" type="string"/>
+   <attribute name="values" type="string"/>
+   <attribute name="dur" type="string"/>
+   <attribute name="begin" type="string"/>
+   <attribute name="repeatCount" type="string"/>
+   <attribute name="additive" type="string"/>
+   <attribute name="accumulate" type="string"/>
+  </complexType>
+ </element>
+ <element name="circle">
+  <complexType>
+   <choice minOccurs="0" maxOccurs="unbounded">
+    <element ref="animate"/>
+    <element ref="animateTransform"/>
+   </choice>
+   <complexContent>
+    <extension base="StyleAttrs">
+     <attribute name="cx" type="string"/>
+     <attribute name="cy" type="string"/>
      <xs:attribute name="r" type="xs:string" use="required"/>
     </xs:extension>
    </xs:complexContent>
