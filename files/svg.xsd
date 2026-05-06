@@ -1,42 +1,42 @@
-<xs:schema elementFormDefault="qualified">
- <xs:element name="svg">
-  <xs:complexType>
-   <xs:sequence>
-    <xs:element ref="style" minOccurs="0" maxOccurs="1"/>
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-     <xs:element ref="circle"/>
-     <xs:element ref="path"/>
-     <xs:element ref="g"/>
-    </xs:choice>
-   </xs:sequence>
-   <xs:attribute name="width" type="xs:string"/>
-   <xs:attribute name="height" type="xs:string"/>
-   <xs:attribute name="viewBox" type="xs:string"/>
-   <xs:attribute name="xmlns" type="xs:string" fixed="http://www.w3.org/2000/svg"/>
-  </xs:complexType>
- </xs:element>
- <xs:element name="g">
-  <xs:complexType>
-   <xs:sequence>
-    <xs:element ref="style" minOccurs="0" maxOccurs="1"/>
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-     <xs:element ref="circle"/>
-     <xs:element ref="path"/>
-     <xs:element ref="g"/>
-     <xs:element ref="animate"/>
-     <xs:element ref="animateTransform"/>
-    </xs:choice>
-   </xs:sequence>
-   <xs:attribute name="transform" type="xs:string"/>
-  </xs:complexType>
- </xs:element>
- <xs:complexType name="StyleAttrs">
-  <xs:attribute name="class" type="xs:string"/>
-  <xs:attribute name="fill" type="xs:string"/>
-  <xs:attribute name="stroke" type="xs:string"/>
-  <xs:attribute name="stroke-width" type="xs:string"/>
-  <xs:attribute name="stroke-linecap" type="xs:string"/>
-  <xs:attribute name="stroke-linejoin" type="xs:string"/>
+<schema elementFormDefault="qualified">
+ <element name="svg">
+  <complexType>
+   <sequence>
+    <element ref="style" minOccurs="0" maxOccurs="1"/>
+    <choice minOccurs="0" maxOccurs="unbounded">
+     <element ref="circle"/>
+     <element ref="path"/>
+     <element ref="g"/>
+    </choice>
+   </sequence>
+   <attribute name="width" type="xs:string"/>
+   <attribute name="height" type="xs:string"/>
+   <attribute name="viewBox" type="xs:string"/>
+   <attribute name="xmlns" type="xs:string" fixed="http://www.w3.org/2000/svg"/>
+  </complexType>
+ </element>
+ <element name="g">
+  <complexType>
+   <sequence>
+    <element ref="style" minOccurs="0" maxOccurs="1"/>
+    <choice minOccurs="0" maxOccurs="unbounded">
+     <element ref="circle"/>
+     <element ref="path"/>
+     <element ref="g"/>
+     <element ref="animate"/>
+     <element ref="animateTransform"/>
+    </choice>
+   </sequence>
+   <attribute name="transform" type="xs:string"/>
+  </complexType>
+ </element>
+ <complexType name="StyleAttrs">
+  <attribute name="class" type="xs:string"/>
+  <attribute name="fill" type="xs:string"/>
+  <attribute name="stroke" type="xs:string"/>
+  <attribute name="stroke-width" type="xs:string"/>
+  <attribute name="stroke-linecap" type="xs:string"/>
+  <attribute name="stroke-linejoin" type="xs:string"/>
   <xs:attribute name="opacity" type="xs:string"/>
  </xs:complexType>
  <xs:element name="style"/>
