@@ -41,27 +41,18 @@
  <xs:element name="animate">
   <xs:complexType>
    <xs:attribute name="attributeName" type="xs:string" use="required"/>
-   <xs:attribute name="from" type="xs:string"/>
-   <xs:attribute name="to" type="xs:string"/>
-   <xs:attribute name="values" type="xs:string"/>
-   <xs:attribute name="dur" type="xs:string"/>
-   <xs:attribute name="begin" type="xs:string"/>
-   <xs:attribute name="repeatCount" type="xs:string"/>
-   <xs:attribute name="fill" type="xs:string"/>
+   <xs:attribute name="values" type="xs:string" use="required"/>
+   <xs:attribute name="dur" type="xs:string" use="required"/>
+   <xs:attribute name="repeatCount" type="xs:string" use="required"/>
   </xs:complexType>
  </xs:element>
  <xs:element name="animateTransform">
   <xs:complexType>
-   <xs:attribute name="attributeName" type="xs:string" fixed="transform"/>
-   <xs:attribute name="type" type="xs:string" use="required"/>
-   <xs:attribute name="from" type="xs:string"/>
-   <xs:attribute name="to" type="xs:string"/>
-   <xs:attribute name="values" type="xs:string"/>
-   <xs:attribute name="dur" type="xs:string"/>
-   <xs:attribute name="begin" type="xs:string"/>
-   <xs:attribute name="repeatCount" type="xs:string"/>
-   <xs:attribute name="additive" type="xs:string"/>
-   <xs:attribute name="accumulate" type="xs:string"/>
+   <xs:attribute name="attributeName" type="xs:string" fixed="transform" use="required"/>
+   <xs:attribute name="type" type="xs:string" fixed="xml" use="required"/>
+   <xs:attribute name="values" type="xs:string" use="required"/>
+   <xs:attribute name="dur" type="xs:string" use="required"/>
+   <xs:attribute name="repeatCount" type="xs:string" use="required"/>
   </xs:complexType>
  </xs:element>
  <xs:element name="circle">
