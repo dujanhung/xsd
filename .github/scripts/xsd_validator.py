@@ -1,5 +1,9 @@
 from lxml import etree
 import sys
+class Validator:
+ def __init__(self):
+ def validate_xsd(self,path):
+  
 def main():
  if len(sys.argv)<2:
   print("✨ usage")
