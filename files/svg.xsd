@@ -9,8 +9,12 @@
      <xs:element ref="g"/>
     </xs:choice>
    </xs:sequence>
-   <xs:attribute name="width" type="xs:string" use="required"/>
-   <xs:attribute name="height" type="xs:string" use="required"/>
+   <xs:complexContent>
+    <xs:extension base="StyleAttrs">
+     <xs:attribute name="width" type="xs:string" use="required"/>
+     <xs:attribute name="height" type="xs:string" use="required"/>
+    </xs:extension>
+   </xs:complexContent>
   </xs:complexType>
  </xs:element>
  <xs:element name="g">
