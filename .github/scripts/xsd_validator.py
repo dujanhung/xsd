@@ -1,4 +1,4 @@
 from lxml import etree
 import sys
-def main()
+def main():
  return 0
