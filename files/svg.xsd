@@ -54,7 +54,7 @@
   <xs:attributeGroup ref="GroupAttrs"/>
   <xs:attribute name="d" type="xs:string" use="required"/>
  </xs:complexType>
- <xs:group name="GroupGroup">
+ <xs:group name="GroupSequence">
   <xs:sequence>
    <xs:element name="style" type="StyleType" minOccurs="0" maxOccurs="1"/>
    <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -65,11 +65,11 @@
   </xs:sequence>
  </xs:group>
  <xs:complexType name="GroupType">
-  <xs:group ref="GroupGroup"/>
+  <xs:group ref="GroupSequence"/>
   <xs:attributeGroup ref="GroupAttrs"/>
  </xs:complexType>
  <xs:complexType name="RootType">
-  <xs:group ref="GroupGroup"/>
+  <xs:group ref="GroupSequence"/>
   <xs:attributeGroup ref="GroupAttrs"/>
   <xs:attributeGroup ref="RootAttrs"/>
  </xs:complexType>
