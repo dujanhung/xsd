@@ -1,84 +1,65 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
- <xs:element name="svg">
-  <xs:complexType>
-   <xs:sequence>
-    <xs:element ref="style" minOccurs="0" maxOccurs="1"/>
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-     <xs:element ref="circle"/>
-     <xs:element ref="path"/>
-     <xs:element ref="g"/>
-    </xs:choice>
-   </xs:sequence>
-   <xs:conplexContent ref="StyleAttrs">
-    <xs:attribute name="width" type="xs:string" use="required"/>
-    <xs:attribute name="height" type="xs:string" use="required"/>
-   </xs:conplexContent>
-  </xs:complexType>
- </xs:element>
- <xs:element name="g">
-  <xs:complexType>
-   <xs:sequence>
-    <xs:element ref="style" minOccurs="0" maxOccurs="1"/>
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-     <xs:element ref="circle"/>
-     <xs:element ref="path"/>
-     <xs:element ref="g"/>
-     <xs:element ref="animate"/>
-     <xs:element ref="animateTransform"/>
-    </xs:choice>
-   </xs:sequence>
-   <xs:attribute name="transform" type="xs:string"/>
-  </xs:complexType>
- </xs:element>
- <xs:complexType name="StyleAttrs">
+ <xs:attributeGroup name="StyleAttrs">
   <xs:attribute name="class" type="xs:string"/>
+  <xs:attribute name="style" type="xs:string"/>
   <xs:attribute name="fill" type="xs:string"/>
   <xs:attribute name="stroke" type="xs:string"/>
   <xs:attribute name="stroke-width" type="xs:string"/>
   <xs:attribute name="stroke-linecap" type="xs:string"/>
   <xs:attribute name="stroke-linejoin" type="xs:string"/>
   <xs:attribute name="opacity" type="xs:string"/>
+ </xs:attributeGroup>
+ <xs:attributeGroup name="TransformAttr">
+  <xs:attribute name="transform" type="xs:string"/>
+ </xs:attributeGroup>
+ <xs:attributeGroup name="AnimationAttrs">
+  <xs:attribute name="values" type="xs:string"/>
+  <xs:attribute name="dur" type="xs:string"/>
+  <xs:attribute name="repeatCount" type="xs:string" fixed="indefinite"/>
+ </xs:attributeGroup>
+ <xs:complexType name="AnimateType">
+  <xs:attribute name="attributeName" type="xs:string" use="required"/>
+  <xs:attributeGroup ref="AnimationAttrs"/>
  </xs:complexType>
- <xs:element name="style"/>
- <xs:element name="animate">
-  <xs:complexType>
-   <xs:attribute name="attributeName" type="xs:string" use="required"/>
-   <xs:attribute name="values" type="xs:string" use="required"/>
-   <xs:attribute name="dur" type="xs:string" use="required"/>
-   <xs:attribute name="repeatCount" type="xs:string" use="required"/>
-  </xs:complexType>
- </xs:element>
- <xs:element name="animateTransform">
-  <xs:complexType>
-   <xs:attribute name="attributeName" type="xs:string" fixed="transform" use="required"/>
-   <xs:attribute name="type" type="xs:string" fixed="xml" use="required"/>
-   <xs:attribute name="values" type="xs:string" use="required"/>
-   <xs:attribute name="dur" type="xs:string" use="required"/>
-   <xs:attribute name="repeatCount" type="xs:string" use="required"/>
-  </xs:complexType>
- </xs:element>
- <xs:element name="circle">
-  <xs:complexType>
-   <xs:choice minOccurs="0" maxOccurs="unbounded">
-    <xs:element ref="animate"/>
-    <xs:element ref="animateTransform"/>
-   </xs:choice>
-   <xs:conplexContent ref="StyleAttrs">
-    <xs:attribute name="cx" type="xs:string"/>
-    <xs:attribute name="cy" type="xs:string"/>
-    <xs:attribute name="r" type="xs:string" use="required"/>
-   </xs:conplexContent>
-  </xs:complexType>
- </xs:element>
- <xs:element name="path">
-  <xs:complexType>
-   <xs:choice minOccurs="0" maxOccurs="unbounded">
-    <xs:element ref="animate"/>
-    <xs:element ref="animateTransform"/>
-   </xs:choice>
-   <xs:conplexContent ref="StyleAttrs">
-    <xs:attribute name="d" type="xs:string" use="required"/>
-   </xs:conplexContent>
-  </xs:complexType>
- </xs:element>
+ <xs:complexType name="AnimateTransformType">
+  <xs:attribute name="attributeName" type="xs:string" fixed="transform"/>
+  <xs:attribute name="type" type="xs:string" fixed="xml"/>
+  <xs:attributeGroup ref="AnimationAttrs"/>
+ </xs:complexType>
+ <xs:group name="AnimationChoice">
+  <xs:choice minOccurs="0" maxOccurs="unbounded">
+   <xs:element name="animate" type="AnimateType"/>
+   <xs:element name="animateTransform" type="AnimateTransformType"/>
+  </xs:choice>
+ </xs:group>
+ <xs:complexType name="CircleType">
+  <xs:group ref="AnimationChoice"/>
+  <xs:attributeGroup ref="StyleAttrs"/>
+  <xs:attributeGroup ref="TransformAttr"/>
+  <xs:attribute name="cx" type="xs:string"/>
+  <xs:attribute name="cy" type="xs:string"/>
+  <xs:attribute name="r" type="xs:string" use="required"/>
+ </xs:complexType>
+ <xs:complexType name="PathType">
+  <xs:group ref="AnimationChoice"/>
+  <xs:attributeGroup ref="StyleAttrs"/>
+  <xs:attributeGroup ref="TransformAttr"/>
+  <xs:attribute name="d" type="xs:string" use="required"/>
+ </xs:complexType>
+ <xs:complexType name="GroupType">
+  <xs:choice minOccurs="0" maxOccurs="unbounded">
+   <xs:element name="style">
+    <xs:complexType mixed="true"/>
+   </xs:element>
+   <xs:element name="g" type="GroupType"/>
+   <xs:element name="circle" type="CircleType"/>
+   <xs:element name="path" type="PathType"/>
+  </xs:choice>
+  <xs:attributeGroup ref="StyleAttrs"/>
+  <xs:attributeGroup ref="TransformAttr"/>
+  <xs:attribute name="width" type="xs:string"/>
+  <xs:attribute name="height" type="xs:string"/>
+  <xs:attribute name="viewBox" type="xs:string"/>
+ </xs:complexType>
+ <xs:element name="svg" type="GroupType"/>
 </xs:schema>
