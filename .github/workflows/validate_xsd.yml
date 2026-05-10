@@ -24,4 +24,5 @@ jobs:
      run: |
       clear
       find $FOLDER_XSD -type f -name *.xsd -exec cat {} \;
+      echo
       find $FOLDER_XSD -type f -name *.xsd -exec python $FILE_PY {} \;
