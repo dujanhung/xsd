@@ -24,9 +24,6 @@ class Validator:
   if self.tmp_xsd:
    if not self.tmp_xsd is str:
     self.tmp_xsd.close()
-  if self.tmp_target:
-   if not self.tmp_target is str:
-    self.tmp_target.close()
 def main():
  if len(sys.argv)<2:
   print("✨ usage")
