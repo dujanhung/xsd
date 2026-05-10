@@ -45,12 +45,12 @@
  <xs:complexType name="GroupType">
   <xs:attributeGroup ref="GroupAttrs"/>
   <xs:sequence>
-   <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
    <xs:choice maxOccurs="unbounded" minOccurs="0">
     <xs:element name="circle" type="CircleType"/>
     <xs:element name="g" type="GroupType"/>
     <xs:element name="path" type="PathType"/>
    </xs:choice>
+   <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
   </xs:sequence>
  </xs:complexType>
  <xs:complexType name="PathType">
@@ -62,12 +62,12 @@
   <xs:attributeGroup ref="GroupAttrs"/>
   <xs:attributeGroup ref="RootAttrs"/>
   <xs:sequence>
-   <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
    <xs:choice maxOccurs="unbounded" minOccurs="0">
     <xs:element name="circle" type="CircleType"/>
     <xs:element name="g" type="GroupType"/>
     <xs:element name="path" type="PathType"/>
    </xs:choice>
+   <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
   </xs:sequence>
  </xs:complexType>
  <xs:complexType name="StyleType" mixed="true"/>
