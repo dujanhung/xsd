@@ -47,28 +47,6 @@
   <xs:sequence>
    <xs:choice maxOccurs="unbounded" minOccurs="0">
     <xs:element name="circle" type="CircleType"/>
-    <xs:element name="g" type="GroupType2"/>
-    <xs:element name="path" type="PathType"/>
-   </xs:choice>
-   <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
-  </xs:sequence>
- </xs:complexType>
- <xs:complexType name="GroupType2">
-  <xs:attributeGroup ref="GroupAttrs"/>
-  <xs:sequence>
-   <xs:choice maxOccurs="unbounded" minOccurs="0">
-    <xs:element name="circle" type="CircleType"/>
-    <xs:element name="g" type="GroupType3"/>
-    <xs:element name="path" type="PathType"/>
-   </xs:choice>
-   <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
-  </xs:sequence>
- </xs:complexType>
- <xs:complexType name="GroupType3">
-  <xs:attributeGroup ref="GroupAttrs"/>
-  <xs:sequence>
-   <xs:choice maxOccurs="unbounded" minOccurs="0">
-    <xs:element name="circle" type="CircleType"/>
     <xs:element name="g"/>
     <xs:element name="path" type="PathType"/>
    </xs:choice>
