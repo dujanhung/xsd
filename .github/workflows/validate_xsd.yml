@@ -22,4 +22,7 @@ jobs:
      run: pip install lxml
    - name: validate
      run: |
-      find $FOLDER_XSD -type f -name "*.xsd" -exec python $FILE_PY {} \;
+      find $FOLDER_XSD -type f -name "*.xsd" -exec |
+       cat {}
+       python $FILE_PY {}
+      \;
