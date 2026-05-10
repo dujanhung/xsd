@@ -3,10 +3,10 @@ on:
  workflow_dispatch:
  pull_request:
   paths:
-   - ./github/scripts/validate_xsd.py
+   - "./github/scripts/validate_xsd.py"
 env:
  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
- FILE_PY: ./github/scripts/validate_xsd.py
+ FILE_PY: "./github/scripts/validate_xsd.py"
 jobs:
  validate:
   runs-on: ubuntu-latest
