@@ -1,4 +1,5 @@
 from lxml import etree
+import urllib
 import sys
 class Validator:
  def __init__(self):
