@@ -6,6 +6,7 @@ on:
    - "./github/scripts/validate_xsd.py"
 env:
  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+ FILE_PY: ./github/scripts/validate_xsd.py
 jobs:
  validate:
   runs-on: ubuntu-latest
@@ -20,4 +21,4 @@ jobs:
      run: pip install lxml
    - name: validate
      run: |
-      find -type f -name "*.xsd" -exec python .github/scripts/validate_xsd.py {} \;
+      find -type f -name "*.xsd" -exec python $FILE_PY {} \;
