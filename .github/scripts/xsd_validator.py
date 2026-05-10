@@ -33,7 +33,7 @@ def main():
  result=validator.load_xsd(sys.argv[1]):
  validator.cleanup_cache()
  if result:
-  return 1
- return 0
+  return 0
+ return 1
 if __name__=="__main__":
  sys.exit(main())
