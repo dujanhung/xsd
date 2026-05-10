@@ -3,7 +3,7 @@ on:
  workflow_dispatch:
  pull_request:
   paths:
-   - "files/**.xsd"
+   - "**.xsd"
 env:
  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
  FILE_PY: ".github/scripts/validate_xsd.py"
