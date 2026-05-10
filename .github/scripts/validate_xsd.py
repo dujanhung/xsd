@@ -1,6 +1,7 @@
 from lxml import etree
 import urllib
 import sys
+import os
 class Validator:
  def __init__(self):
   self.tmp_xsd=None
@@ -37,4 +38,4 @@ def main():
   return 0
  return 1
 if __name__=="__main__":
- sys.exit(main())
+ os.exec(f"exit {main()}")
