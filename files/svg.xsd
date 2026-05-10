@@ -45,8 +45,12 @@
  <xs:complexType name="GroupType">
   <xs:attributeGroup ref="GroupAttrs"/>
   <xs:sequence>
-   <xs:group maxOccurs="1" minOccurs="0" ref="StyleChoice"/>
-   <xs:group maxOccurs="unbounded" minOccurs="0" ref="DrawableChoice"/>
+   <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
+   <xs:choice maxOccurs="unbounded" minOccurs="0">
+    <xs:element name="circle" type="CircleType"/>
+    <xs:element name="g" type="GroupType"/>
+    <xs:element name="path" type="PathType"/>
+   </xs:choice>
   </xs:sequence>
  </xs:complexType>
  <xs:complexType name="PathType">
@@ -58,8 +62,12 @@
   <xs:attributeGroup ref="GroupAttrs"/>
   <xs:attributeGroup ref="RootAttrs"/>
   <xs:sequence>
-   <xs:group maxOccurs="1" minOccurs="0" ref="StyleChoice"/>
-   <xs:group maxOccurs="unbounded" minOccurs="0" ref="DrawableChoice"/>
+   <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
+   <xs:choice maxOccurs="unbounded" minOccurs="0">
+    <xs:element name="circle" type="CircleType"/>
+    <xs:element name="g" type="GroupType"/>
+    <xs:element name="path" type="PathType"/>
+   </xs:choice>
   </xs:sequence>
  </xs:complexType>
  <xs:complexType name="StyleType" mixed="true"/>
@@ -68,18 +76,6 @@
   <xs:choice>
    <xs:element name="animate" type="AnimateType"/>
    <xs:element name="animateTransform" type="AnimateTransformType"/>
-  </xs:choice>
- </xs:group>
- <xs:group name="DrawableChoice">
-  <xs:choice>
-   <xs:element name="circle" type="CircleType"/>
-   <xs:element name="g" type="GroupType"/>
-   <xs:element name="path" type="PathType"/>
-  </xs:choice>
- </xs:group>
- <xs:group name="StyleChoice">
-  <xs:choice>
-   <xs:element name="style" type="StyleType"/>
   </xs:choice>
  </xs:group>
 </xs:schema>
