@@ -1,0 +1,28 @@
+name: validate XSD
+on:
+ workflow_dispatch:
+ pull_request:
+  paths:
+   - "./github/scripts/validate_xsd.py"
+env:
+ FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+jobs:
+ validate:
+  runs-on: ubuntu-latest
+  steps:
+   - name: checkout repo
+     uses: actions/checkout@v5
+   - name: checkout xml-schema-validator repo
+     uses: actions/checkout@v5
+     with:
+      repository: dujanhung/xml-schema-validator
+      path: xml-schema-validator
+   - name: setup Python
+     uses: actions/setup-python@v6
+     with:
+      python-version: '3.14'
+   - name: install XML library
+     run: pip install lxml
+   - name: validate
+     run: |
+      find -type f -name "*.xsd" -exec python .github/scripts/validate_xsd.py {} \;
