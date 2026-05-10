@@ -7,7 +7,7 @@ on:
 env:
  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
  FILE_PY: ".github/scripts/validate_xsd.py"
- FOLDER_XSD: "files/"
+ FOLDER_XSD: "files"
 jobs:
  validate:
   runs-on: ubuntu-latest
@@ -22,7 +22,6 @@ jobs:
      run: pip install lxml
    - name: validate
      run: |
-      find $FOLDER_XSD -type f -name "*.xsd" -exec |
-       cat {}
-       python $FILE_PY {}
-      \;
+      for i in $FOLDER_XSD/*.xsd;do
+       cat $i
+       python $FILE_PY $i
