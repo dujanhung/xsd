@@ -1,8 +1,8 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
  <xs:attributeGroup name="AnimationAttrs">
-  <xs:attribute name="dur" type="xs:string"/>
-  <xs:attribute name="repeatCount" type="xs:string" fixed="indefinite"/>
-  <xs:attribute name="values" type="xs:string"/>
+  <xs:attribute name="dur" type="xs:string" use="required"/>
+  <xs:attribute name="repeatCount" type="xs:string" fixed="indefinite" use="required"/>
+  <xs:attribute name="values" type="xs:string" use="required"/>
  </xs:attributeGroup>
  <xs:attributeGroup name="DrawableAttrs">
   <xs:attribute name="class" type="xs:string"/>
@@ -16,13 +16,12 @@
   <xs:attribute name="transform" type="xs:string"/>
  </xs:attributeGroup>
  <xs:attributeGroup name="RootAttrs">
-  <xs:attribute name="height" type="xs:string"/>
-  <xs:attribute name="viewBox" type="xs:string"/>
-  <xs:attribute name="width" type="xs:string"/>
+  <xs:attribute name="height" type="xs:string" use="required"/>
+  <xs:attribute name="width" type="xs:string" use="required"/>
  </xs:attributeGroup>
  <xs:complexType name="AnimateTransformType">
-  <xs:attribute name="attributeName" type="xs:string" fixed="transform"/>
-  <xs:attribute name="type" type="xs:string" fixed="xml"/>
+  <xs:attribute name="attributeName" type="xs:string" fixed="transform" use="required"/>
+  <xs:attribute name="type" type="xs:string" fixed="xml" use="required"/>
   <xs:attributeGroup ref="AnimationAttrs"/>
  </xs:complexType>
  <xs:complexType name="AnimateType">
@@ -34,7 +33,7 @@
   <xs:attributeGroup ref="DrawableAttrs"/>
   <xs:attribute name="cx" type="xs:string"/>
   <xs:attribute name="cy" type="xs:string"/>
-  <xs:attribute name="r" type="xs:string" use="required"/>
+  <xs:attribute name="r" type="xs:string"/>
  </xs:complexType>
  <xs:complexType name="GroupType">
   <xs:attributeGroup ref="DrawableAttrs"/>
