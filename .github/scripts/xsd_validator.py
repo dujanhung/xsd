@@ -30,7 +30,9 @@ def main():
   print(f"🪜 {sys.argv[0]} <schema.xsd>")
   return 1
  validator=Validator()
- if not validator.load_xsd(sys.argv[1]):
+ result=validator.load_xsd(sys.argv[1]):
+ validator.cleanup_cache()
+ if result:
   return 1
  return 0
 if __name__=="__main__":
