@@ -44,7 +44,7 @@
  </xs:complexType>
  <xs:complexType name="GroupType">
   <xs:attributeGroup ref="GroupAttrs"/>
-  <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
+  <xs:group maxOccurs="1" minOccurs="0" ref="StyleChoice"/>
   <xs:group maxOccurs="unbounded" minOccurs="0" ref="DrawableChoice"/>
  </xs:complexType>
  <xs:complexType name="PathType">
@@ -55,7 +55,7 @@
  <xs:complexType name="RootType">
   <xs:attributeGroup ref="GroupAttrs"/>
   <xs:attributeGroup ref="RootAttrs"/>
-  <xs:element maxOccurs="1" minOccurs="0" name="style" type="StyleType"/>
+  <xs:group maxOccurs="1" minOccurs="0" ref="StyleChoice"/>
   <xs:group maxOccurs="unbounded" minOccurs="0" ref="DrawableChoice"/>
  </xs:complexType>
  <xs:complexType name="StyleType" mixed="true"/>
@@ -71,6 +71,11 @@
    <xs:element name="circle" type="CircleType"/>
    <xs:element name="g" type="GroupType"/>
    <xs:element name="path" type="PathType"/>
+  </xs:choice>
+ </xs:group>
+ <xs:group name="StyleChoice">
+  <xs:choice>
+   <xs:element name="style" type="StyleType"/>
   </xs:choice>
  </xs:group>
 </xs:schema>
