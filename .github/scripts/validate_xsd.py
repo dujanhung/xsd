@@ -37,4 +37,4 @@ def main():
   return 0
  return 1
 if __name__=="__main__":
- __os__.exec(f"exit {main()}")
+ sys.exit(main())
