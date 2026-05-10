@@ -12,11 +12,6 @@ jobs:
   steps:
    - name: checkout repo
      uses: actions/checkout@v5
-   - name: checkout xml-schema-validator repo
-     uses: actions/checkout@v5
-     with:
-      repository: dujanhung/xml-schema-validator
-      path: xml-schema-validator
    - name: setup Python
      uses: actions/setup-python@v6
      with:
