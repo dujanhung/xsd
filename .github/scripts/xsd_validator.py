@@ -23,6 +23,7 @@ class Validator:
  def cleanup_cache(self):
   if self.tmp_xsd:
    self.tmp_xsd.close()
+   self.tmp_xsd=None
 def main():
  if len(sys.argv)<2:
   print("✨ usage")
